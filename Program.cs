@@ -49,12 +49,22 @@ class Program
 {
     static void Main(string[] args)
     {
+<<<<<<< HEAD
         Console.Write("Введіть радіус кола: ");
         double radius = Convert.ToDouble(Console.ReadLine());
 
         Circle circle = new Circle();
         
         circle.Radius = radius;
+=======
+       
+        Console.Write("Введіть радіус кола: ");
+        double radius = Convert.ToDouble(Console.ReadLine());
+
+      
+        Circle circle = new Circle(radius);
+
+>>>>>>> c752b96e9ee657c77b842a20c257f4c6ae939b1d
         
         Console.WriteLine($"Площа круга: {circle.GetArea():F2}");
         Console.WriteLine($"Довжина кола: {circle.GetCircumference():F2}");
