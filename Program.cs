@@ -1,9 +1,33 @@
 ﻿using System;
 
-// Клас Circle згідно із завданням
 class Circle
 {
-    public double Radius { get; set; }
+    private double radius;
+
+    public double Radius
+    {
+        get 
+        { 
+            return radius; 
+        }
+        set
+        {
+            if (value <= 0)
+            {
+                Console.WriteLine("Помилка: Радіус повинен бути більше нуля!");
+            }
+            else
+            {
+                radius = value;
+            }
+        }
+    }
+
+    public Circle()
+    {
+        Radius = 1;
+    }
+
 
     public Circle(double radius)
     {
@@ -12,12 +36,12 @@ class Circle
 
     public double GetArea()
     {
-        return Math.PI * Radius * Radius;
+        return Math.PI * radius * radius;
     }
 
     public double GetCircumference()
     {
-        return 2 * Math.PI * Radius;
+        return 2 * Math.PI * radius;
     }
 }
 
@@ -25,14 +49,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Запит та введення радіуса з клавіатури
         Console.Write("Введіть радіус кола: ");
         double radius = Convert.ToDouble(Console.ReadLine());
 
-        // Створення об'єкта кола
-        Circle circle = new Circle(radius);
-
-        // Виведення результатів обчислень
+        Circle circle = new Circle();
+        
+        circle.Radius = radius;
+        
         Console.WriteLine($"Площа круга: {circle.GetArea():F2}");
         Console.WriteLine($"Довжина кола: {circle.GetCircumference():F2}");
     }
